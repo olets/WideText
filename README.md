@@ -12,7 +12,8 @@ Drawback for some: won't work on IE < 8
 ##Useage
 
 **Make text fully responsive simply by wrapping it in `svg.widetext text`**  
-The **Text** content will be as **Wide** as the full width of the `svg`'s relative container… it'll be **WideText**! The `svg` will be sized to fit the text content.
+The **Text** content will be as **Wide** as the full width of the `svg`'s relative container… it'll be **WideText**!  
+The `svg` will be sized to fit the text content.
 
 *Note there will likely be some bordering space between the text content and the `svg`, because the `svg` will be sized to contain the largest possible character, from [ascender line to descender line](https://en.wikipedia.org/wiki/Typeface_anatomy#/media/File:Typographia.svg) and including room for [diacritics](https://en.wikipedia.org/wiki/Diacritic).*
 
