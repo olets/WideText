@@ -45,7 +45,7 @@ Takes em values; including the "em" unit is optional (either .2 or .2em will wor
 
 	<svg class="widetext" data-leading=".5em" data-align="center">
 	    <text>
-	        <tspan>a full example</tspan><tspan>with multiple lines, alignment, and leading</tspan>
+	        <tspan>a full example</tspan><tspan>with multiple lines, alignment, and custom leading</tspan>
 	    </text>
 	</svg>
 
