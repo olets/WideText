@@ -1,6 +1,6 @@
 /* WideText
 
-   v1 - 2016-06-23
+   v1.0.1 - 2016-06-23
    
    https://github.com/olets/WideText
    Copyright (c) 2016 Henry Bley-Vroman (@olets)
@@ -16,7 +16,9 @@ var svgElems = document.querySelectorAll('svg.widetext'), i;
 for (i = 0; i < svgElems.length; ++i) {
   var svgElem = svgElems[i];
   
+  // set the `svg`s display styles
   svgElem.setAttribute('width','100%');
+  svgElem.setAttribute('display','block');
 
   // get the child `text`
   var textElem = svgElem.querySelector('text');
