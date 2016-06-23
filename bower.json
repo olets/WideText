@@ -1,0 +1,24 @@
+{
+  "name": "WideText",
+  "homepage": "https://github.com/olets/WideText",
+  "authors": [
+    "Henry Bley-Vroman <bley.vroman@gmail.com>"
+  ],
+  "description": "WideText: easy responsive font sizing for one or more lines of text",
+  "main": "widetext.js",
+  "keywords": [
+    "responsive",
+    "text",
+    "svg",
+    "font-size",
+    "font"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
