@@ -1,10 +1,12 @@
 #WideText
 
+v1.0.1
+
 WideText easily makes the font size of one or several lines of text responsive  
 It's like Nermal to [the wonderful] [BigText](https://github.com/zachleat/BigText)'s Garfield: younger and lighter.
 
 
-Bonuses: under 800b of js, no dependencies, doesn't rerun on window resize events  
+Bonuses: 800b of vanilla js, doesn't rerun on window resize events  
 Drawback for some: won't work on IE < 8
 
 [Check out the pen demo!](http://codepen.io/henry/pen/beBQzJ)
