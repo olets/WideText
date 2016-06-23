@@ -50,4 +50,4 @@ Takes em values; including the "em" unit is optional (either .2 or .2em will wor
 --
   
 ###Acknowledgments
-Thanks to Paul LeBeau for the method of resizing svg to fit the text content.
+Thanks to Paul LeBeau ([@BigBadaboom](https://github.com/BigBadaboom)) for the method of resizing svg to fit the text content.
