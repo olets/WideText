@@ -49,7 +49,7 @@ Takes em values; including the "em" unit is optional (either .2 or .2em will wor
 	    </text>
 	</svg>
 
-** Illustration of where the blank space around some characters comes from
+**Illustration of where the blank space around some characters comes from**
 
     <svg class="widetext">
       <text>Tall ก็ Long ç</text>
