@@ -23,8 +23,8 @@ The `svg` will be sized to fit the text content.
 Takes "center" or "right"
 
 **Break the text into several lines by wrapping each line in a `tspan`**  
-All lines will be the same font size,  
-and the longest line will be the full width of the `svg`.  
+The longest line will be the full width of the `svg`,
+and all other lines will get the same font size as the longest.
 *Note: remove whitespace between `tspan`s or you'll get trailing and/or leading space.*
 
 **Adjust the space between lines of text by adding `data-leading` to the `svg`**  
