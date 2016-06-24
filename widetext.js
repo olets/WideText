@@ -19,6 +19,7 @@ for (i = 0; i < svgElems.length; ++i) {
   // set the `svg`s display styles
   svgElem.setAttribute('width','100%');
   svgElem.setAttribute('display','block');
+  svgElem.setAttribute('font-size','6px');
 
   // get the child `text`
   var textElem = svgElem.querySelector('text');
