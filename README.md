@@ -25,11 +25,11 @@ Takes "center" or "right"
 **Break the text into several lines by wrapping each line in a `tspan`**  
 All lines will be the same font size,  
 and the longest line will be the full width of the `svg`.  
-*Note: remove whitespace between `tspan`s or you'll get trailing and/or leading space*
+*Note: remove whitespace between `tspan`s or you'll get trailing and/or leading space.*
 
 **Adjust the space between lines of text by adding `data-leading` to the `svg`**  
 Takes em values; including the "em" unit is optional (either .2 or .2em will work)  
-*Note: this isn't line height, it's the space added above each line of text except the first*
+*Note: this isn't line height, it's the space between successive lines of text.*
 
 ##Examples:
 
@@ -48,6 +48,12 @@ Takes em values; including the "em" unit is optional (either .2 or .2em will wor
 	        <tspan>a full example</tspan><tspan>with multiple lines, alignment, and custom leading</tspan>
 	    </text>
 	</svg>
+
+** Illustration of where the blank space around some characters comes from
+
+    <svg class="widetext">
+      <text>Tall ก็ Long ç</text>
+    </svg>
 
 
 --
