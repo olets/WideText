@@ -9,7 +9,7 @@ It's like Nermal to [the wonderful] [BigText](https://github.com/zachleat/BigTex
 Bonuses: Under 800b of vanilla js, runs just once on load (works on window resize events without rerunning)  
 Drawback for some: won't work on IE < 8
 
-[Check out the pen demo!](http://codepen.io/henry/pen/beBQzJ)
+###[Check out the demo!](http://codepen.io/henry/pen/beBQzJ)
 
 ##Useage
 
@@ -68,17 +68,17 @@ Multiple instances are fine:
 
 	.wideText();
 	.wideText({
-		selector: '.wideText.spaced-big',
+		selector: '.wideText.alternate',
 		leading: 3
 	})
 
 The available options are
 
-option	| default 		| possible values
+Option	| Default 		| Possible values
 ---	 	| ---			| ---
-selector	| '.wideText' 	| string
-leading 	| .2 			| number (e.g. .2) or string (e.g. '.2' or '.2em')
-align 	| left align 	| 'center' or 'right'
+selector	| `'.wideText'` 	| string
+leading 	| `.2` 			| em value as a number (e.g. `.2`) or a string (e.g. `'.2'` or `'.2em'`)
+align 	| (aligns left) 	| `'center'` or `'right'`
 
 
 --
