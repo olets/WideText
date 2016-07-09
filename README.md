@@ -6,14 +6,14 @@ WideText easily makes the font size of one or several lines of text responsive
 It's like Nermal to [the wonderful] [BigText](https://github.com/zachleat/BigText)'s Garfield: younger and lighter.
 
 
-Bonuses: 800b of vanilla js, runs just once on load (works on window resize events without rerunning)  
+Bonuses: Under 800b of vanilla js, runs just once on load (works on window resize events without rerunning)  
 Drawback for some: won't work on IE < 8
 
 [Check out the pen demo!](http://codepen.io/henry/pen/beBQzJ)
 
 ##Useage
 
-**Make text fully responsive simply by wrapping it in `svg.widetext text`**  
+**Make text fully responsive simply by wrapping it in `svg.widetext text` and running `wideText()`**  
 The **Text** content will be as **Wide** as the full width of the `svg`'s relative container… it'll be **WideText**!  
 The `svg` will be sized to fit the text content.
 
@@ -33,7 +33,11 @@ Takes em values; including the "em" unit is optional (either .2 or .2em will wor
 
 ##Examples:
 
-**Minimal**
+**Script**
+
+	wideText();
+
+**Markup (basic example)**
 
 	<svg class="widetext">
 	  <text>
@@ -41,7 +45,7 @@ Takes em values; including the "em" unit is optional (either .2 or .2em will wor
 	  </text>
 	</svg>
 
-**Full**
+**Markup (full example)**
 
 	<svg class="widetext" data-leading=".5em" data-align="center">
 	    <text>
@@ -49,14 +53,36 @@ Takes em values; including the "em" unit is optional (either .2 or .2em will wor
 	    </text>
 	</svg>
 
-**Illustration of where the blank space around some characters comes from**
+##Options:
 
-    <svg class="widetext">
-      <text>Tall ก็ Long ç</text>
-    </svg>
+To target `svg.customSelector`, run `wideText('.customSelector')` (WideText enforces targetting an svg).
+
+You can pass an array of options like
+
+	.wideText({
+		leading: .5,
+		align: 'right'
+	})
+
+Multiple instances are fine:
+
+	.wideText();
+	.wideText({
+		selector: '.wideText.spaced-big',
+		leading: 3
+	})
+
+The available options are
+
+option	| default 		| possible values
+---	 	| ---			| ---
+selector	| '.wideText' 	| string
+leading 	| .2 			| number (e.g. .2) or string (e.g. '.2' or '.2em')
+align 	| left align 	| 'center' or 'right'
 
 
 --
-  
+
 ###Acknowledgments
+By Henry Bley-Vroman (@olets), 2016. MIT License.  
 Thanks to Paul LeBeau ([@BigBadaboom](https://github.com/BigBadaboom)) for the method of resizing svg to fit the text content.
