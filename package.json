@@ -1,6 +1,6 @@
 {
   "name": "WideText",
-  "version": "1.0.3",
+  "version": "2",
   "description": "Easy responsive font sizing for one or more lines of text",
   "main": "widetext.js",
   "scripts": {
