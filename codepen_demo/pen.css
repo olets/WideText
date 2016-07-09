@@ -1,0 +1,51 @@
+/* all styling is just for demo purposes */
+
+/* an example of how you might style this svg text */
+svg {
+  font-family: 'helvetica';
+  fill: maroon;
+  /* setting font size is not recommended and is, of course, pointless */
+}
+
+html {
+  padding: 20px;
+  background: #ccc
+}
+.demo {
+  padding-top: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+p {
+  font-family: sans-serif;
+  font-size: 18px;
+}
+svg {
+  outline: 1px solid red;
+  background: #fff;
+  margin-bottom: 40px;
+}
+svg.heading {
+  font-family: serif;
+  font-weight: 700;
+  fill: inherit;
+  background: transparent;
+  outline: 0
+}
+.fancy {
+  outline: 1px solid blue
+}
+.fancy svg {
+  margin-bottom: 0;
+  outline: 1px solid rgba(255,0,0,.2);
+}
+a {
+  display: inline-block;
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px 32px;
+  box-shadow: 0 3px 4px rgba(0,0,0,.8);
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid blue;
+}

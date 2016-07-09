@@ -1,0 +1,52 @@
+<svg class="heading widetext">
+  <text>
+    WideText: simple responsive font sizing for one of more lines of text
+  </text>
+</svg>
+
+<h2>To see WideText at work, resize your window and watch that ^ heading. To really see the magic, make your window narrow until it compresses the white boxes.</h2>
+
+<p>The max-width, outlines, and visible background are just to make it clear what's happening in this demo - in the wild, this would just look like text (comment out or remove any of the "just for demo purposes" styles to test).</p>
+
+<p><a href="https://github.com/olets/WideText" target="_top">Download WideText on GitHub!</a></p>
+
+<div class="demo">
+  <h3>A minimal example</h3>
+  <svg class="widetext">
+    <text>
+      minimal example
+    </text>
+  </svg>
+
+  <h3>A full example</h3>
+  <svg class="widetext" data-leading=".5em" data-align="center">
+      <text>
+          <tspan>a full example</tspan><tspan>with multiple lines, alignment, and custom leading</tspan>
+      </text>
+  </svg>
+  
+  <h3>A full example with custom options</h3>
+  <svg class="widetext alternate">
+      <text>
+          <tspan>a full example</tspan><tspan>with multiple lines, alignment, and custom leading</tspan>
+      </text>
+  </svg>
+
+  <h3>An example of how several widetext svgs in a single container can be used for interesting typography</h3>
+  <p>Remember that the background color and outlines are only for demonstation purposes - in practice you'd probably just style this to match the rest of your text. This example also demonstrates the ascender line to descender line sizing of the svg: it will necessarily be big enough to hold the tallest and longest possible characters.</p>
+  <div class="fancy">
+    <svg class="widetext">
+      <text>some largish words</text>
+    </svg>
+    <svg class="widetext">
+      <text>and then a handful of smaller ones</text>
+    </svg>
+    <svg class="widetext">
+      <text>Tall ก็ Long ç</text>
+    </svg>
+    <svg class="widetext">
+      <text>Big!</text>
+    </svg>
+  </div>
+  
+</div>
