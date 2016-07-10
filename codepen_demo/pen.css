@@ -1,4 +1,12 @@
-/* all styling is just for demo purposes */
+/*
+
+
+
+      All styles are just for demo purposes
+
+
+
+*/
 
 /* an example of how you might style this svg text */
 svg {
@@ -6,7 +14,7 @@ svg {
   fill: maroon;
   /* setting font size is not recommended and is, of course, pointless */
 }
-
+/* styling the demo page */
 html {
   padding: 20px;
   background: #ccc
@@ -25,7 +33,7 @@ svg {
   background: #fff;
   margin-bottom: 40px;
 }
-svg.heading {
+.heading svg {
   font-family: serif;
   font-weight: 700;
   fill: inherit;
@@ -38,6 +46,16 @@ svg.heading {
 .fancy svg {
   margin-bottom: 0;
   outline: 1px solid rgba(255,0,0,.2);
+}
+a {
+  display: inline-block;
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px 32px;
+  box-shadow: 0 3px 4px rgba(0,0,0,.8);
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid blue;
 }
 a {
   display: inline-block;
