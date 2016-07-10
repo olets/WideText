@@ -98,6 +98,17 @@ Use the data attributes `data-align` and `data-leading` to set options in the ma
 		<tspan>text</tspan><tspan>more text</tspan>
 	</div>
 
+
+### Limitations
+
+The classes `.widetext_svg` and `.widetext_text` are reserved, as after processing
+
+	<div class="widetext">text</div>
+
+will be
+
+	<div class="widetext"><svg class="widetext_svg"><text class="widetext_text">text</text></svg></div>
+
 &nbsp;  
 
 --
