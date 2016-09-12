@@ -41,7 +41,6 @@ function wideText(args) {
     // Wrap the target's contents in it
     while (wtElem.firstChild)// because there could be one or several children
       textElem.appendChild(wtElem.firstChild);
-    wtElem.appendChild(textElem);
     textElem.classList.add("wideText_text");
     //
     // Build the `svg` element
