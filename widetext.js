@@ -37,14 +37,14 @@ function wideText(args) {
     // Add the WideText wrappers
     //
     // Build the `text` element
-    var textElem = document.createElement("text");
+    var textElem = document.createElementNS("http://www.w3.org/2000/svg", "text");
     // Wrap the target's contents in it
     while (wtElem.firstChild)// because there could be one or several children
       textElem.appendChild(wtElem.firstChild);
     textElem.classList.add("wideText_text");
     //
     // Build the `svg` element
-    var svgElem = document.createElement("svg");
+    var svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     // wrap the `text` in it
     svgElem.appendChild(textElem);
     wtElem.appendChild(svgElem);
@@ -71,7 +71,7 @@ function wideText(args) {
       var rowElems = textElem.querySelectorAll(args.row);
       for (p = 0; p < rowElems.length; p++) {
         var rowElem = rowElems[p];
-        var tspanElem = document.createElement("tspan");
+        var tspanElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
         tspanElem.appendChild(rowElem.firstChild);
         textElem.replaceChild(tspanElem, rowElem);
       }
