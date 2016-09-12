@@ -49,9 +49,9 @@ function wideText(args) {
     svgElem.appendChild(textElem);
     wtElem.appendChild(svgElem);
     svgElem.classList.add("wideText_svg");
-    svgElem.setAttribute('width', '100%');
-    svgElem.setAttribute('display', 'block');
-    svgElem.setAttribute('font-size', '6px');
+    svgElem.style.width = "100%";
+    svgElem.style.display = "block";
+    svgElem.style["font-size"] = "6px";
     
     // console.log('wtElem:');
     // console.log(wtElem);
