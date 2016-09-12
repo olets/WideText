@@ -103,9 +103,9 @@ function wideText(args) {
     // size the svg to fit the text
     //
     // get the `svg.svgtext text`s bounding box
-    // var textBBox = textElem.getBBox();
+    var textBBox = textElem.getBBox();
     // and update the `svg.svgtext`s viewBox to fit it to the text
-    // svgElem.setAttribute("viewBox", [textBBox.x, textBBox.y, textBBox.width, textBBox.height].join(' '));
+    svgElem.setAttribute("viewBox", [textBBox.x, textBBox.y, textBBox.width, textBBox.height].join(' '));
     // console.log('textElem:');
     // console.log(textElem);
     // console.log('textBBox:');
