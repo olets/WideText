@@ -1,13 +1,12 @@
 /* WideText
 
-   v3 - 2016-07-09
+   v3.1 - 2016-09-27
    
    https://github.com/olets/WideText
    Copyright (c) 2016 Henry Bley-Vroman (@olets)
    MIT License
 
 
-working towards 3.1, 
  */
 
 function wideText(args) {
@@ -53,11 +52,6 @@ function wideText(args) {
     svgElem.style.display = "block";
     svgElem.style["font-size"] = "6px";
     
-    // console.log('wtElem:');
-    // console.log(wtElem);
-    // console.log('svgElem:');
-    // console.log(svgElem);
-    
 
     // if the target has data-align, apply that to the `text`
     var align = wtElem.getAttribute('data-align') || args.align;
@@ -67,7 +61,7 @@ function wideText(args) {
       var anchor = 'end';
     if (anchor) textElem.setAttribute('text-anchor', anchor);
 
-    if (args.row !== 'tspan') {
+    // if (args.row !== 'tspan') { // means tspans are unnecessarily replaced… but it keeps it from breaking when args.row is tspan!
       var rowElems = textElem.querySelectorAll(args.row);
       for (p = 0; p < rowElems.length; p++) {
         var rowElem = rowElems[p];
@@ -75,15 +69,13 @@ function wideText(args) {
         tspanElem.appendChild(rowElem.firstChild);
         textElem.replaceChild(tspanElem, rowElem);
       }
-      console.log(textElem)
-    }
+    // }
 
     // Put all `tspan`s on their own line and apply leading
     //
     //
     // Get all child `tspan`s
-    var tspanElems = textElem.querySelectorAll('tspan'),
-      m;
+    var tspanElems = textElem.querySelectorAll('tspan');
 
     // For each of them
     for (m = 0; m < tspanElems.length; ++m) {
@@ -106,20 +98,5 @@ function wideText(args) {
     var textBBox = textElem.getBBox();
     // and update the `svg.svgtext`s viewBox to fit it to the text
     svgElem.setAttribute("viewBox", [textBBox.x, textBBox.y, textBBox.width, textBBox.height].join(' '));
-    // console.log('textElem:');
-    // console.log(textElem);
-    // console.log('textBBox:');
-    // console.log(textBBox);
-    //
-    // This doesn't work - seems the DOM isn't recognizing the svg as an svg?
-    // maybe it has to be loaded, a la https://www.raymondcamden.com/2013/02/05/Playing-with-SVG-and-JavaScript/ ?
   }
 }
-
-wideText();
-wideText({
-  selector: '.widetext_parent > section',
-  leading: 3,
-  align: 'right',
-  row: 'span'
-})
