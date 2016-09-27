@@ -1,12 +1,12 @@
 #WideText
 
-v3
+v3.1
 
 WideText easily makes the font size of one or several lines of text responsive  
 It's like Nermal to [the wonderful] [BigText](https://github.com/zachleat/BigText)'s Garfield: younger and lighter.
 
 
-Bonuses: Under 1k of vanilla js, runs just once on load (works on window resize events without rerunning)  
+Bonuses: Just barely more than 1k of vanilla js, runs just once on load (works on window resize events without rerunning)  
 Drawback for some: won't work on IE < 8
 
 ###[Check out the demo!](http://codepen.io/henry/pen/beBQzJ)
@@ -14,10 +14,10 @@ Drawback for some: won't work on IE < 8
 ##Useage
 
 **Make text fully responsive simply by wrapping it in `.widetext` and running `wideText()`**  
-The **Text** content will be as **Wide** as its containing `.widetext`… it'll be **WideText**!  
+The **Text** content will be as **Wide** as its container… it'll be **WideText**!  
 
 
-*Note there will likely be some horizontal space between the text content and the container, because the container will be sized to contain the largest possible character, from [ascender line to descender line](https://en.wikipedia.org/wiki/Typeface_anatomy#/media/File:Typographia.svg) and including room for [diacritics](https://en.wikipedia.org/wiki/Diacritic).*
+*Note there will likely be some top and bottom space between the text content and the container, because the container will be sized to contain the largest possible character, from [ascender line to descender line](https://en.wikipedia.org/wiki/Typeface_anatomy#/media/File:Typographia.svg) and including room for [diacritics](https://en.wikipedia.org/wiki/Diacritic). See the [demo](http://codepen.io/henry/pen/beBQzJ) for a visual explanation.*
 
 ###Basic example:
 
@@ -29,39 +29,50 @@ Markup:
 	
 Script:
 
-	wideText(options);
+	wideText();
 	
-Where `options` is optional.
 
 ###Multi-line example
 Break the text into several lines by wrapping each line in a `<tspan>`  
 The longest line will be the full width of the container,  
 and all other lines will get the same font size as the longest.  
-*Note: remove whitespace between `tspan`s or you'll get trailing and/or leading space
+**Note: remove whitespace between `tspan`s or you'll get trailing and/or leading space**
 
 Markup:
 
-	<div class="widetext" data-leading=".5em" data-align="center">
-        <tspan>a full example</tspan><tspan>with multiple lines, alignment, and custom leading</tspan>
+	<div class="widetext">
+        <tspan>multiple</tspan><tspan>lines</tspan>
 	</div>
 
 ##Options:
 
-The available `options` are
+The available options are
 
-Option	| Default 		| Possible values
----	 	| ---			| ---
-selector	| `'.widetext'` 	| string
-leading* 	| `.2` 			| em value as a string (e.g. `'.2'` or `'.2em'`). When passing it in js, this can be a string or a number (e.g. `.2`)
-align 	| null 	| `'center'` or `'right'` — anything else will align left
+Option | Default | Attribute for inlining | Possible values
+--- | --- | --- | --- |
+selector	| `".widetext"` | not available | any valid `"selector"`, as a string
+leading* | `.2` | `data-leading` | <p>An em value, whether or not `em` is provided.</p><p>**Inline:** as a string, with or without a unit (e.g. `".2"` or `".2em"`). </p> **Or in js:** string with or without units (e.g. `".2"` or `".2em"`) or a number (e.g. `.2`)
+align | null | `data-align` | `"center"` or `"right"` — anything else will align left
+row | `"tspan"` | not available | any valid `"element"` or `".class"`, as a string
 
-\* *Note: this isn't line height, it's the space between successive lines of text.*
-  
-&nbsp;  
+*\* Note "leading" isn't line height, it's the space between successive lines of text.*
 
-### Custom target element
 
-To target `customSelector`, run `wideText('customSelector')`
+### Custom target
+
+`wideText()` targets all elements with `.widetext`. To target additional or different elements:
+
+    HTML:
+    <widetextElement>responsive text</widetextElement>
+    <div class="parentOfAnotherWideTextElement">
+        <span>responsive text</span>
+    </div>
+    <yetAnotherWideTextElement>responsive text</yetAnotherWideTextElement>
+    
+    JS:
+    wideText("widetextElement"); // shorthand to target an element
+    wideText(".parentOfAnotherWideTextElement span"); // shorthand for some other selector
+    wideText({selector: "yetAnotherWideTextElement"});
 
 
 ### Custom options
@@ -99,15 +110,23 @@ Use the data attributes `data-align` and `data-leading` to set options in the ma
 	</div>
 
 
-### Limitations
+## Restrictions
 
-The classes `.widetext_svg` and `.widetext_text` are reserved, as after processing
+The classes `.wideText_svg` and `.wideText_text` are reserved, as after processing
 
-	<div class="widetext">text</div>
+	<div class="myWideText">
+		<tspan>text</tspan><tspan>second line</tspan>
+	</div>
 
 will be
 
-	<div class="widetext"><svg class="widetext_svg"><text class="widetext_text">text</text></svg></div>
+	<div class="myWideText">
+		<svg class="wideText_svg">
+			<text class="wideText_text">
+				<tspan>text</tspan><tspan>second line</tspan>
+			</text>
+		</svg>
+	</div>
 
 &nbsp;  
 
@@ -115,4 +134,4 @@ will be
 
 ###Acknowledgments
   
-Thanks to Paul LeBeau ([@BigBadaboom](https://github.com/BigBadaboom)) for the method of resizing svg to fit the text content.
+Thanks to [@BigBadaboom](https://github.com/BigBadaboom) and [@dannyjhonston](https://github.com/dannyjhonston) for their help.
