@@ -1,6 +1,6 @@
 /* WideText
 
-   v3 - 2016-07-09
+   v3.1 - 2016-09-27
    
    https://github.com/olets/WideText
    Copyright (c) 2016 Henry Bley-Vroman (@olets)
@@ -15,5 +15,6 @@ wideText();
 wideText({
   selector: '.widetext_parent > section',
   leading: 3,
-  align: 'right'
+  align: 'right',
+  row: 'span'
 })
