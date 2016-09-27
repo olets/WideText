@@ -55,23 +55,29 @@ leading* | `.2` | `data-leading` | <p>An em value, whether or not `em` is provid
 align | null | `data-align` | `"center"` or `"right"` — anything else will align left
 row | `"tspan"` | not available | any valid `"element"` or `".class"`, as a string
 
-*\* Note "leading" isn't line height, it's the space between successive lines of text.*
+\* *Note "leading" isn't line height, it's the space between successive lines of text.*
 
 
 ### Custom target
 
-`wideText()` targets all elements with `.widetext`. To target additional or different elements:
+By default **WideText** targets all elements with `.widetext`. To target additional or different elements:
 
-    HTML:
+Markup:
+
     <widetextElement>responsive text</widetextElement>
+
     <div class="parentOfAnotherWideTextElement">
         <span>responsive text</span>
     </div>
+
     <yetAnotherWideTextElement>responsive text</yetAnotherWideTextElement>
     
-    JS:
+Script:
+
     wideText("widetextElement"); // shorthand to target an element
+
     wideText(".parentOfAnotherWideTextElement span"); // shorthand for some other selector
+
     wideText({selector: "yetAnotherWideTextElement"});
 
 
@@ -89,33 +95,33 @@ Multiple instances are fine:
 	.wideText();
 	.wideText({
 		selector: '.wideText_alternate',
-		leading: 3
+		row: 'span'
 	})
 
 ### Data API
 
-Use the data attributes `data-align` and `data-leading` to set options in the markup. Note that inline options will override options passed with `wideText()`.
+Use the data attributes `data-align` and `data-leading` to set the `align` and `leading` options inline. Note that inline options will override options passed in `wideText()`.
 
 
 **Align multiple lines of text with the `data-align` attribute**  
 	
 	<div class="widetext" data-align="left">
-		<tspan>text</tspan><tspan>more text</tspan>
+		<tspan>line 1</tspan><tspan>line 2</tspan>
 	</div>	
 
 **Adjust the space between multiple lines with `data-leading`**
 
 	<div class="widetext" data-leading=".2">
-		<tspan>text</tspan><tspan>more text</tspan>
+		<tspan>line 1</tspan><tspan>line 2</tspan>
 	</div>
 
 
 ## Restrictions
 
-The classes `.wideText_svg` and `.wideText_text` are reserved, as after processing
+The classes `.wideText_svg` and `.wideText_text` are reserved, because after processing
 
 	<div class="myWideText">
-		<tspan>text</tspan><tspan>second line</tspan>
+		<tspan>line 1</tspan><tspan>line 2</tspan>
 	</div>
 
 will be
@@ -123,7 +129,7 @@ will be
 	<div class="myWideText">
 		<svg class="wideText_svg">
 			<text class="wideText_text">
-				<tspan>text</tspan><tspan>second line</tspan>
+				<tspan>line 1</tspan><tspan>line 1</tspan>
 			</text>
 		</svg>
 	</div>
