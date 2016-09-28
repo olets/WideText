@@ -1,6 +1,6 @@
 /* WideText
 
-   v3.1 - 2016-09-27
+   v3.1.1 - 2016-09-27
    
    https://github.com/olets/WideText
    Copyright (c) 2016 Henry Bley-Vroman (@olets)
@@ -10,93 +10,83 @@
  */
 
 function wideText(args) {
-  var defaults = {
-    'selector': '.widetext',
-    'leading': .2,
-    'align': '',
-    'row': 'tspan'
-  }
 
-  if (typeof args === "string")
-    args = {
-      'selector': args
+    // set options
+    var defaults = {
+        'selector': '.widetext',
+        'leading': .2,
+        'align': '',
+        'row': 'tspan'
     }
-  if (typeof args !== "object")
-    args = {};
-  for (var option in defaults)
-    if (!(option in args))
-      args[option] = defaults[option];
+    if (typeof args === "string")
+        args = {
+            'selector': args
+        }
+    if (typeof args !== "object")
+        args = {};
+    for (var option in defaults)
+        if (!(option in args))
+            args[option] = defaults[option];
 
-    // Find all the targets of WideText
-  var wtElems = document.querySelectorAll(args.selector);
+        // Determine targets
+    var wtElems = document.querySelectorAll(args.selector);
 
-  for (var i = 0; i < wtElems.length; ++i) {
-    var wtElem = wtElems[i];
+    // For each target
+    for (var i = 0; i < wtElems.length; ++i) {
 
-    // Add the WideText wrappers
-    //
-    // Build the `text` element
-    var textElem = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    // Wrap the target's contents in it
-    while (wtElem.firstChild)// because there could be one or several children
-      textElem.appendChild(wtElem.firstChild);
-    textElem.classList.add("wideText_text");
-    //
-    // Build the `svg` element
-    var svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    // wrap the `text` in it
-    svgElem.appendChild(textElem);
-    wtElem.appendChild(svgElem);
-    svgElem.classList.add("wideText_svg");
-    svgElem.style.width = "100%";
-    svgElem.style.display = "block";
-    svgElem.style["font-size"] = "6px";
-    
+        // Make an <svg> and a <text>, and check for inline options
+        var wtElem = wtElems[i],
+            svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg"),
+            textElem = document.createElementNS("http://www.w3.org/2000/svg", "text"),
+            align = wtElem.getAttribute('data-align') || args.align,
+            leadingVal = wtElem.getAttribute('data-leading') || args.leading,
+            dyVal = parseFloat(leadingVal, 10) + 1 + "em";
 
-    // if the target has data-align, apply that to the `text`
-    var align = wtElem.getAttribute('data-align') || args.align;
-    if (align == 'center') {
-      var anchor = 'middle'
-    } else if (align == 'right')
-      var anchor = 'end';
-    if (anchor) textElem.setAttribute('text-anchor', anchor);
+        // Move the target's contents into the <text>
+        while (wtElem.firstChild)
+            textElem.appendChild(wtElem.firstChild);
 
-    // if (args.row !== 'tspan') { // means tspans are unnecessarily replaced… but it keeps it from breaking when args.row is tspan!
-      var rowElems = textElem.querySelectorAll(args.row);
-      for (p = 0; p < rowElems.length; p++) {
-        var rowElem = rowElems[p];
-        var tspanElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-        tspanElem.appendChild(rowElem.firstChild);
-        textElem.replaceChild(tspanElem, rowElem);
-      }
-    // }
+        // Apply alignment to the <text>
+        if (align == 'center') {
+            var anchor = 'middle'
+        } else if (align == 'right')
+            var anchor = 'end';
+        if (anchor) textElem.setAttribute('text-anchor', anchor);
+        // And give it the WideText class
+        textElem.classList.add("wideText_text");
 
-    // Put all `tspan`s on their own line and apply leading
-    //
-    //
-    // Get all child `tspan`s
-    var tspanElems = textElem.querySelectorAll('tspan');
+        // Put each row in a <tspan>
+        var rowElems = textElem.querySelectorAll(args.row);
+        for (j = 0; j < rowElems.length; j++) {
+            var rowElem = rowElems[j],
+                tspanElem = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+            while (rowElem.firstChild)
+                tspanElem.appendChild(rowElem.firstChild);
 
-    // For each of them
-    for (m = 0; m < tspanElems.length; ++m) {
-      var tspanElem = tspanElems[m];
+            // And place the <tspan>
+            tspanElem.setAttribute('x', '0');
+            tspanElem.setAttribute('dy', dyVal);
 
-      // set `x` to the left
-      tspanElem.setAttribute('x', '0');
+            // And put the <tspan>s in the <text>
+            textElem.replaceChild(tspanElem, rowElem);
+        }
 
-      // if the `svg.svgtext` has `data-leading`, use that as the leading;
-      // otherwise default to a .2em leading
-      // console.log('args.leading:' + args.leading);
-      var leadingVal = wtElem.getAttribute('data-leading') || args.leading;
-      var dyVal = parseFloat(leadingVal, 10) + 1 + "em";
-      tspanElem.setAttribute('dy', dyVal);
+        // Put the <text> in the <svg>
+        svgElem.appendChild(textElem);
+
+        // And apply default styles
+        svgElem.style.width = "100%";
+        svgElem.style.display = "block";
+        svgElem.style["font-size"] = "6px";
+
+        // And give it the WideText class
+        svgElem.classList.add("wideText_svg");
+
+        // Put the <svg> in the target
+        wtElem.appendChild(svgElem);
+
+        // Size the <svg> to fit the <text>
+        var textBBox = textElem.getBBox();
+        svgElem.setAttribute("viewBox", [textBBox.x, textBBox.y, textBBox.width, textBBox.height].join(' '));
     }
-    
-    // size the svg to fit the text
-    //
-    // get the `svg.svgtext text`s bounding box
-    var textBBox = textElem.getBBox();
-    // and update the `svg.svgtext`s viewBox to fit it to the text
-    svgElem.setAttribute("viewBox", [textBBox.x, textBBox.y, textBBox.width, textBBox.height].join(' '));
-  }
 }
