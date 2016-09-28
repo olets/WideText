@@ -9,10 +9,10 @@
  */
 
 // in this pen, WideText is included from the github repo
-// head over there to download it… it's under 800b!
+// head over there to download it… it's barely over 1k!
 
-wideText();
-wideText({
+wideText(); // for demos 1, 2, and 4
+wideText({ // for demo 3
   selector: '.widetext_parent > section',
   leading: 3,
   align: 'right',
