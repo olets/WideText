@@ -1,6 +1,6 @@
 #WideText
 
-v3.1
+v3.1.1
 
 WideText easily makes the font size of one or several lines of text responsive  
 It's like Nermal to [the wonderful] [BigText](https://github.com/zachleat/BigText)'s Garfield: younger and lighter.

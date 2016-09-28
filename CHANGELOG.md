@@ -1,5 +1,11 @@
 # WideText Changelog
 
+## 3.1.1
+
+*2016-09-27*
+
+Refactor to tighten up - 7% reduction in minified size
+
 ## 3.1
 
 *2016-09-27*

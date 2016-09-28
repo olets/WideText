@@ -1,6 +1,6 @@
 /* WideText
 
-   v3.1 - 2016-09-27
+   v3.1.1 - 2016-09-27
    
    https://github.com/olets/WideText
    Copyright (c) 2016 Henry Bley-Vroman (@olets)
