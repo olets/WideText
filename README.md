@@ -1,4 +1,4 @@
-#WideText
+# WideText
 
 v3.1.1
 
@@ -9,9 +9,9 @@ It's like Nermal to [the wonderful] [BigText](https://github.com/zachleat/BigTex
 Bonuses: Just barely more than 1k of vanilla js, runs just once on load (works on window resize events without rerunning)  
 Drawback for some: won't work on IE < 8
 
-###[Check out the demo!](http://codepen.io/henry/pen/beBQzJ)
+### [Check out the demo!](http://codepen.io/henry/pen/beBQzJ)
 
-##Useage
+## Useage
 
 **Make text fully responsive simply by wrapping it in `.widetext` and running `wideText()`**  
 The **Text** content will be as **Wide** as its container… it'll be **WideText**!  
@@ -19,7 +19,7 @@ The **Text** content will be as **Wide** as its container… it'll be **WideText
 
 *Note there will likely be some top and bottom space between the text content and the container, because the container will be sized to contain the largest possible character, from [ascender line to descender line](https://en.wikipedia.org/wiki/Typeface_anatomy#/media/File:Typographia.svg) and including room for [diacritics](https://en.wikipedia.org/wiki/Diacritic). See the [demo](http://codepen.io/henry/pen/beBQzJ) for a visual explanation.*
 
-###Basic example:
+### Basic example:
 
 Markup:
 
@@ -32,7 +32,7 @@ Script:
 	wideText();
 	
 
-###Multi-line example
+### Multi-line example
 Break the text into several lines by wrapping each line in a `<tspan>`  
 The longest line will be the full width of the container,  
 and all other lines will get the same font size as the longest.  
@@ -44,7 +44,7 @@ Markup:
         <tspan>multiple</tspan><tspan>lines</tspan>
 	</div>
 
-##Options:
+## Options:
 
 The available options are
 
@@ -138,6 +138,6 @@ will be
 
 --
 
-###Acknowledgments
+### Acknowledgments
   
 Thanks to [@BigBadaboom](https://github.com/BigBadaboom) and [@dannyjhonston](https://github.com/dannyjhonston) for their help.
